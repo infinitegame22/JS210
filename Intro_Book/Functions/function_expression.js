@@ -7,3 +7,5 @@ let getNumber = (text) => {
 let number1 = getNumber("Enter a number: ");
 let number2 = getNumber("Enter another number: ");
 console.log(add(number1, number2));
+
+// this code only runs in a browser console!!!
