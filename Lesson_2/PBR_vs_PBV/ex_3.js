@@ -1,8 +1,10 @@
 function changeMyWord(word) {
     console.log(word);
     word = word.toUpperCase();
+    return word;
 }
 
 let myWord = 'Hello';
-changeMyWord(myWord);
+let myOtherWord = changeMyWord(myWord);
 console.log(myWord);
+console.log(myOtherWord);
