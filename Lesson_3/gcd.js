@@ -18,17 +18,41 @@ output: integer
 A:
 - choose the smaller integer between the two inputs
 - declare a variable to hold the max integer
-- iterate over integers from 2 to the larger integer argument
-    - if the current integer is divisble by both arguments with no remainder, reassign the max variable to current int
+- iterate over integers from 1 to the larger integer argument
+    - if the current integer is divisible by both arguments with no remainder, reassign the max variable to current int
 - return the max
 
  */
 
-function gcd(arg1, arg2) {
-    let min = Math.min(arg1, arg2);
-    console.log(min);
+// function gcd(arg1, arg2) {
+//     let min = Math.min(arg1, arg2);
+//     let max_divisor = 0;
+//     for (let i = 1; i <= min; i++) {
+//         if (arg1 % i === 0 && arg2 % i === 0) {
+//             max_divisor = i;
+//         }
+//     }
+//     console.log(max_divisor);
+// }
+
+function gcd(a, b) {
+    if (b === 0) {
+        return a;
+    }
+    return gcd(b, a % b);
 }
 
-gcd(12, 4);   // 4
-gcd(15, 10);  // 5
-gcd(9, 2);    // 1
+function gcdMultiple(...array) {
+    return array.reduce((acc, cur) => gcd(acc, cur));
+}
+//
+// gcd(12, 4);   // 4
+// gcd(15, 10);  // 5
+// gcd(9, 2);    // 1
+
+
+console.log(gcd(4, 12));   // 4
+console.log(gcd(10, 15));  // 5
+console.log(gcd(2, 9));    // 1
+console.log(gcdMultiple(12, 4, 8)); // Output: 4
+console.log(gcdMultiple(48, 18, 30)); // Output: 6
